@@ -37,7 +37,7 @@ export default {
     ArticleCardBlock,
     InlineErrorBlock
   },
-  async fetch() {
+  async fetch () {
     const res = await fetch(
       // eslint-disable-next-line
       `https://dev.to/api/articles?username=${this.$route.params.username}`
@@ -45,7 +45,7 @@ export default {
     // eslint-disable-next-line
     this.articles = await res.json()
   },
-  data() {
+  data () {
     return {
       articles: null
     }

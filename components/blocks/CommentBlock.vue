@@ -9,7 +9,7 @@
           }"
           class="inner-link"
         >
-          <img :src="comment.user.profile_image_90" :alt="comment.user.name" />
+          <img :src="comment.user.profile_image_90" :alt="comment.user.name">
           <span>{{ comment.user.name }}</span>
         </nuxt-link>
         <a

@@ -26,7 +26,14 @@
           <stop stop-color="#7ABAE8" offset="0%" />
           <stop stop-color="#56A0D6" offset="100%" />
         </linearGradient>
-        <rect id="path-2" x="0" y="0" width="201" height="42" rx="4" />
+        <rect
+          id="path-2"
+          x="0"
+          y="0"
+          width="201"
+          height="42"
+          rx="4"
+        />
         <polygon
           id="path-3"
           points="0 21.0228944 12.4555325 27.9766451 24.9163677 20.9996075 24.9163677 7.01712217 12.4581839 0 0 7.04817138"

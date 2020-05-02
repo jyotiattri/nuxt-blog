@@ -22,7 +22,7 @@
     </template>
     <template v-else>
       <div class="image-wrapper">
-        <img :src="user.profile_image" :alt="user.name" />
+        <img :src="user.profile_image" :alt="user.name">
       </div>
       <div class="content">
         <h1>{{ user.name }}</h1>
@@ -34,7 +34,9 @@
         >
           Follow
         </a>
-        <div v-if="user.summary" class="summary">{{ user.summary }}</div>
+        <div v-if="user.summary" class="summary">
+          {{ user.summary }}
+        </div>
         <div class="links">
           <a
             v-if="user.twitter_username"
@@ -63,12 +65,20 @@
 
       <div class="info">
         <div v-if="user.location">
-          <div class="title">location</div>
-          <div class="content">{{ user.location }}</div>
+          <div class="title">
+            location
+          </div>
+          <div class="content">
+            {{ user.location }}
+          </div>
         </div>
         <div v-if="user.joined_at">
-          <div class="title">joined</div>
-          <div class="content">{{ user.joined_at }}</div>
+          <div class="title">
+            joined
+          </div>
+          <div class="content">
+            {{ user.joined_at }}
+          </div>
         </div>
       </div>
     </template>
@@ -88,7 +98,7 @@ export default {
     InlineErrorBlock
   },
   props: [],
-  async fetch() {
+  async fetch () {
     const res = await fetch(
       `https://dev.to/api/users/by_username?url=${this.$route.params.username}`
     )
@@ -101,12 +111,12 @@ export default {
     }
     this.user = await res.json()
   },
-  data() {
+  data () {
     return {
       user: {}
     }
   },
-  head() {
+  head () {
     return {
       title: this.user.name
     }

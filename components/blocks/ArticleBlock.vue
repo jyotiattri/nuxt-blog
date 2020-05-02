@@ -24,7 +24,7 @@
           </nuxt-link>
         </div>
         <div v-if="article.cover_image" class="image-wrapper">
-          <img :src="article.cover_image" :alt="article.title" />
+          <img :src="article.cover_image" :alt="article.title">
         </div>
         <div class="meta">
           <div class="scl">
@@ -57,10 +57,10 @@ export default {
     CommentsIcon
   },
   props: [],
-  async fetch() {
+  async fetch () {
     const article = await fetch(
       `https://dev.to/api/articles/${this.$route.params.article}`
-    ).then((res) => res.json())
+    ).then(res => res.json())
     if (article.id && article.user.username === this.$route.params.username) {
       this.article = article
       this.$store.commit('SET_CURRENT_ARTICLE', this.article)
@@ -72,19 +72,19 @@ export default {
       throw new Error('Article not found')
     }
   },
-  data() {
+  data () {
     return {
       article: {}
     }
   },
-  activated() {
+  activated () {
     // Call fetch again if last fetch more than 60 sec ago
     if (this.$fetchState.timestamp <= Date.now() - 60000) {
       this.$fetch()
     }
   },
   methods: {
-    scrollToComments() {
+    scrollToComments () {
       const el = document.querySelector('#comments')
       if (el) {
         const scrollTo = el.getBoundingClientRect().top
@@ -92,7 +92,7 @@ export default {
       }
     }
   },
-  head() {
+  head () {
     return {
       title: this.article.title
     }

@@ -21,7 +21,7 @@ export default {
   components: {
     NuxtIcon
   },
-  data() {
+  data () {
     return {
       links: [
         {

@@ -30,7 +30,7 @@
             params: { username: user.username }
           }"
         >
-          <img :src="user.profile_image" :alt="user.name" />
+          <img :src="user.profile_image" :alt="user.name">
         </nuxt-link>
         <div class="text">
           <nuxt-link
@@ -62,16 +62,28 @@
       </nuxt-link>
       <div class="info">
         <div v-if="user.summary">
-          <div class="title">about</div>
-          <div class="content">{{ user.summary }}</div>
+          <div class="title">
+            about
+          </div>
+          <div class="content">
+            {{ user.summary }}
+          </div>
         </div>
         <div v-if="user.location">
-          <div class="title">location</div>
-          <div class="content">{{ user.location }}</div>
+          <div class="title">
+            location
+          </div>
+          <div class="content">
+            {{ user.location }}
+          </div>
         </div>
         <div v-if="user.joined_at">
-          <div class="title">joined</div>
-          <div class="content">{{ user.joined_at }}</div>
+          <div class="title">
+            joined
+          </div>
+          <div class="content">
+            {{ user.joined_at }}
+          </div>
         </div>
       </div>
     </template>
@@ -85,7 +97,7 @@ export default {
     InlineErrorBlock
   },
   props: [],
-  async fetch() {
+  async fetch () {
     const res = await fetch(
       `https://dev.to/api/users/by_username?url=${this.$route.params.username}`
     )
@@ -95,7 +107,7 @@ export default {
     this.user = await res.json()
   },
   fetchOnServer: false,
-  data() {
+  data () {
     return {
       user: {}
     }

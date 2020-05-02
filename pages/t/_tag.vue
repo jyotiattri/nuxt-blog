@@ -48,7 +48,7 @@
 <script>
 import ArticleCardBlock from '@/components/blocks/ArticleCardBlock'
 import InlineErrorBlock from '@/components/blocks/InlineErrorBlock'
-function capitalize(str) {
+function capitalize (str) {
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
 export default {
@@ -56,10 +56,10 @@ export default {
     ArticleCardBlock,
     InlineErrorBlock
   },
-  async fetch() {
+  async fetch () {
     const articles = await fetch(
       `https://dev.to/api/articles?tag=${this.$route.params.tag}&top=365&page=${this.currentPage}`
-    ).then((res) => res.json())
+    ).then(res => res.json())
     if (!articles.length && this.currentPage === 1) {
       // set status code on server
       if (process.server) {
@@ -69,14 +69,14 @@ export default {
     }
     this.articles = this.articles.concat(articles)
   },
-  data() {
+  data () {
     return {
       currentPage: 1,
       articles: []
     }
   },
   methods: {
-    lazyLoadArticles(isVisible) {
+    lazyLoadArticles (isVisible) {
       if (isVisible) {
         if (this.currentPage < 5) {
           this.currentPage++
@@ -85,7 +85,7 @@ export default {
       }
     }
   },
-  head() {
+  head () {
     return {
       title:
         this.$route.params.tag &&

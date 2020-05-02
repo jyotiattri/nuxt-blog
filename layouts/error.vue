@@ -22,7 +22,7 @@ export default {
       default: () => {}
     }
   },
-  head() {
+  head () {
     return {
       title: this.error.message || 'Error Page'
     }

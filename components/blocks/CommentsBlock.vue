@@ -26,19 +26,19 @@ export default {
     CommentBlock
   },
   props: [],
-  async fetch() {
+  async fetch () {
     this.comments = await fetch(
       `https://dev.to/api/comments?a_id=${this.$route.params.article}`
-    ).then((res) => res.json())
+    ).then(res => res.json())
   },
   fetchOnServer: false,
-  data() {
+  data () {
     return {
       comments: []
     }
   },
   computed: {
-    addCommentLink() {
+    addCommentLink () {
       const { slug } = this.$store.state.currentArticle || {}
       return `https://dev.to/${this.$route.params.username}/${slug}`
     }

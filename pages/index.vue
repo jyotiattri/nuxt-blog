@@ -53,20 +53,20 @@ export default {
     ArticleCardBlock,
     InlineErrorBlock
   },
-  async fetch() {
+  async fetch () {
     const articles = await fetch(
       `https://dev.to/api/articles?tag=nuxt&state=rising&page=${this.currentPage}`
-    ).then((res) => res.json())
+    ).then(res => res.json())
     this.articles = this.articles.concat(articles)
   },
-  data() {
+  data () {
     return {
       currentPage: 1,
       articles: []
     }
   },
   methods: {
-    lazyLoadArticles(isVisible) {
+    lazyLoadArticles (isVisible) {
       if (isVisible) {
         if (this.currentPage < 5) {
           this.currentPage++
@@ -75,7 +75,7 @@ export default {
       }
     }
   },
-  head() {
+  head () {
     return {
       title: 'New Nuxt.js articles'
     }
